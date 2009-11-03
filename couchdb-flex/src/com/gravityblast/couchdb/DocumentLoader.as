@@ -33,7 +33,7 @@ package com.gravityblast.couchdb
 				{
 					document = event.json;
 				}
-				var e:DocumentEvent = new DocumentEvent(DocumentEvent.LOADED, document);
+				var e:DocumentEvent = new DocumentEvent(DocumentEvent.LOADED, document, event.json, event.data);
 				this.dispatchEvent(e);
 			}
 		}

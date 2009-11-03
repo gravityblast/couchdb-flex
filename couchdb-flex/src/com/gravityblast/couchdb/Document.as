@@ -1,6 +1,5 @@
 package com.gravityblast.couchdb
-{
-	import com.gravityblast.couchdb.events.CouchRestEvent;
+{	
 	import com.gravityblast.couchdb.events.DocumentEvent;
 	
 	import flash.utils.describeType;
@@ -52,7 +51,7 @@ package com.gravityblast.couchdb
 		{			
 			var saver:DocumentSaver = new DocumentSaver(database, this);
 			if (completeCallback != null)
-				saver.addEventListener(CouchRestEvent.COMPLETE, completeCallback);
+				saver.addEventListener(DocumentEvent.SAVED, completeCallback);
 			saver.save();			
 		}
 		

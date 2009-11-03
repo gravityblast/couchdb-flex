@@ -1,9 +1,9 @@
 package com.gravityblast.couchdb
 {
 	import com.gravityblast.couchdb.events.CouchRestEvent;
+	import com.gravityblast.couchdb.events.DocumentEvent;
 	
 	import flash.events.EventDispatcher;
-	import flash.utils.getQualifiedClassName;
 	
 	public class DocumentSaver extends EventDispatcher
 	{
@@ -36,10 +36,9 @@ package com.gravityblast.couchdb
 				this.document._id  = event.json.id;
 				this.document._rev = event.json.rev;
 			}
-			if (this.hasEventListener(CouchRestEvent.COMPLETE))
-			{
-				// FIXME:
-				var e:CouchRestEvent = new CouchRestEvent(CouchRestEvent.COMPLETE, event.json, event.data);
+			if (this.hasEventListener(DocumentEvent.SAVED))
+			{				
+				var e:DocumentEvent = new DocumentEvent(DocumentEvent.SAVED, this.document, event.json, event.data);
 				this.dispatchEvent(e);
 			}
 		}

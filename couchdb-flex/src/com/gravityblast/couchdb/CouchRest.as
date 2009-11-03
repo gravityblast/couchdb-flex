@@ -58,7 +58,7 @@ package com.gravityblast.couchdb
 		
 		private function httpStatusEventHandler(event:Event):void
 		{
-			trace("http status: " + event)			
+			// trace("http status: " + event)			
 		}
 		
 		public function get(uri:String, params:*=null):void
